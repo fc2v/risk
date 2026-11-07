@@ -1,0 +1,48 @@
+{
+  "id": "9b2e7c41-0d3f-4a8e-b6c5-1f7a2d9e3c08",
+  "accountId": "3f6c1a52-9d4e-4b7a-8f21-6e0d2c9b7a14",
+  "transactionType": "transfer",
+  "amount": -450000,
+  "postedAt": "2026-11-09T02:10:00Z",
+  "category": "transfer_out",
+  "rail": "rtc",
+  "initiationChannel": "app",
+  "deviceId": "dev-c19e",
+  "counterpartyName": "T Mokoena",
+  "counterpartyBankCode": "470010",
+  "counterpartyAccountHash": "e40f7b",
+  "counterpartyProxy": "0821234567",
+  "counterpartyType": "EXTERNAL",
+  "payeeAddedAt": "2026-11-09T01:55:00Z",
+  "payeeMatch": "partialMatch",
+  "reference": "rent",
+  "score": 65,
+  "risk": "HIGH",
+  "ruleOutcomes": [
+    {
+      "rule": "highAmountSpend",
+      "triggered": true,
+      "reason": "AMOUNT_ABOVE_THRESHOLD",
+      "score": 30,
+      "evidence": {
+        "baselineTxs": 36,
+        "medianSize": 25000,
+        "minBaselineTxs": 5,
+        "multiplier": 3,
+        "threshold": 75000,
+        "usedDefault": false
+      }
+    },
+    {
+      "rule": "freshPayee",
+      "triggered": true,
+      "reason": "FRESH_PAYEE",
+      "score": 35,
+      "evidence": {
+        "maxPayeeAge": 3600,
+        "minAmount": 100000,
+        "payeeAge": 900
+      }
+    }
+  ]
+}

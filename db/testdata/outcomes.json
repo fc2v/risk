@@ -1,0 +1,13 @@
+[
+  {
+    "rule": "freshPayee",
+    "triggered": true,
+    "reason": "FRESH_PAYEE",
+    "score": 35,
+    "evidence": {
+      "maxPayeeAge": 3600,
+      "minAmount": 100000,
+      "payeeAge": 900
+    }
+  }
+]

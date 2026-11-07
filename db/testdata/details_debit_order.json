@@ -1,0 +1,12 @@
+{
+  "mandateId": "MND-20251001-77",
+  "mandateType": "debicheck",
+  "mandateCreatedAt": "2025-11-09T02:10:00Z",
+  "mandateMaxAmount": 50000,
+  "frequency": "monthly",
+  "sequence": "recurring",
+  "actionDate": "2026-11-09",
+  "creditorUserCode": "INSURECO",
+  "creditorName": "Insure Co",
+  "creditorBankCode": "250655"
+}

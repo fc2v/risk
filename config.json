@@ -1,0 +1,175 @@
+{
+  "bands": {
+    "minMedium": 30,
+    "minHigh": 60
+  },
+  "rules": [
+    {
+      "name": "velocity",
+      "rule": "velocity",
+      "enabled": true,
+      "score": 25,
+      "appliesTo": ["card", "transferOut"],
+      "window": "1h",
+      "multiplier": 4,
+      "minCount": 5,
+      "minBaselineTxs": 10,
+      "minBaselineSpan": "168h"
+    },
+    {
+      "name": "highAmountSpend",
+      "rule": "highAmount",
+      "enabled": true,
+      "score": 30,
+      "appliesTo": ["card", "transferOut"],
+      "multiplier": 3,
+      "minBaselineTxs": 5,
+      "medianOfLast": 200,
+      "defaultThreshold": 500000
+    },
+    {
+      "name": "highAmountInbound",
+      "rule": "highAmount",
+      "enabled": true,
+      "score": 20,
+      "appliesTo": ["transferIn"],
+      "multiplier": 5,
+      "minBaselineTxs": 3,
+      "medianOfLast": 200,
+      "defaultThreshold": 2000000
+    },
+    {
+      "name": "highAmountRefund",
+      "rule": "highAmount",
+      "enabled": true,
+      "score": 25,
+      "appliesTo": ["cardRefund"],
+      "multiplier": 3,
+      "minBaselineTxs": 3,
+      "medianOfLast": 200,
+      "defaultThreshold": 500000
+    },
+    {
+      "name": "unusualTime",
+      "rule": "unusualTime",
+      "enabled": true,
+      "score": 20,
+      "appliesTo": ["card", "transferOut"],
+      "neighbourHours": 1,
+      "maxShare": 0.02,
+      "minBaselineTxs": 20,
+      "excludeRecent": "24h"
+    },
+    {
+      "name": "freshPayee",
+      "rule": "freshPayee",
+      "enabled": true,
+      "score": 35,
+      "appliesTo": ["transferOut"],
+      "maxPayeeAge": "1h",
+      "minAmount": 100000
+    },
+    {
+      "name": "payeeNameMismatch",
+      "rule": "payeeNameMismatch",
+      "enabled": true,
+      "score": 30,
+      "appliesTo": ["transferOut"],
+      "mismatchValues": ["noMatch"]
+    },
+    {
+      "name": "passThrough",
+      "rule": "passThrough",
+      "enabled": true,
+      "score": 30,
+      "appliesTo": ["transferOut"],
+      "learnsFrom": ["transferIn", "ownAccountTransfer", "transferOut"],
+      "window": "6h",
+      "minInbound": 500000,
+      "minShare": 0.8,
+      "newCounterpartyOnly": true
+    },
+    {
+      "name": "newCounterparty",
+      "rule": "newCounterparty",
+      "enabled": true,
+      "score": 15,
+      "appliesTo": ["transferOut", "transferIn"],
+      "minBaselineTxs": 5
+    },
+    {
+      "name": "newDevice",
+      "rule": "newDevice",
+      "enabled": true,
+      "score": 25,
+      "appliesTo": ["transferOut", "ownAccountTransfer"],
+      "learnsFrom": ["transferOut", "ownAccountTransfer"],
+      "minBaselineTxs": 3
+    },
+    {
+      "name": "newCountry",
+      "rule": "newCountry",
+      "enabled": true,
+      "score": 30,
+      "appliesTo": ["card", "cardRefund"],
+      "paymentChannels": ["in store", "online"],
+      "minBaselineTxs": 5
+    },
+    {
+      "name": "newCreditor",
+      "rule": "newCreditor",
+      "enabled": true,
+      "score": 30,
+      "appliesTo": ["debitOrder"],
+      "mandateTypes": ["eft"],
+      "minBaselineTxs": 1
+    },
+    {
+      "name": "aboveMandateMax",
+      "rule": "aboveMandateMax",
+      "enabled": true,
+      "score": 40,
+      "appliesTo": ["debitOrder"]
+    },
+    {
+      "name": "representedDebit",
+      "rule": "representedDebit",
+      "enabled": true,
+      "score": 15,
+      "appliesTo": ["debitOrder"],
+      "sequences": ["represented"]
+    },
+    {
+      "name": "highRiskMCC",
+      "rule": "highRiskMCC",
+      "enabled": true,
+      "score": 20,
+      "appliesTo": ["card"],
+      "mccs": ["4829", "6051", "6540", "7800", "7801", "7802", "7995"],
+      "firstTimeOnly": true
+    },
+    {
+      "name": "highRiskCategory",
+      "rule": "highRiskCategory",
+      "enabled": true,
+      "score": 20,
+      "appliesTo": ["transferOut", "debitOrder"],
+      "categories": ["gambling", "cryptocurrency"]
+    }
+  ],
+  "history": {
+    "lookback": "2160h"
+  },
+  "consumer": {
+    "topic": "txs.incoming",
+    "group": "risk",
+    "deadLetterTopic": "txs.incoming.dlq",
+    "retry": {
+      "failAfterAttempts": 5,
+      "initialBackoff": "1s",
+      "maxBackoff": "1m"
+    },
+    "workers": 16,
+    "maxPendingPerPartition": 10000
+  }
+}

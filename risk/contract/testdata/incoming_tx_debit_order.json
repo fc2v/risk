@@ -1,0 +1,18 @@
+{
+  "id": "5c9e1f3a-2b7d-4d6e-8a1c-9f4b2e7d3a61",
+  "accountId": "3f6c1a52-9d4e-4b7a-8f21-6e0d2c9b7a14",
+  "transactionType": "debitOrder",
+  "amount": -45000,
+  "postedAt": "2026-11-09T04:10:00+02:00",
+  "category": "insurance",
+  "mandateId": "MND-20251001-77",
+  "mandateType": "debicheck",
+  "mandateCreatedAt": "2025-11-09T04:10:00+02:00",
+  "mandateMaxAmount": 50000,
+  "frequency": "monthly",
+  "sequence": "recurring",
+  "actionDate": "2026-11-09",
+  "creditorUserCode": "INSURECO",
+  "creditorName": "Insure Co",
+  "creditorBankCode": "250655"
+}

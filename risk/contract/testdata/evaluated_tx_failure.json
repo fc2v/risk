@@ -1,0 +1,16 @@
+{
+  "id": "e1a4c7d2-3f6b-4a9e-8d2c-7b5f1e3a9c60",
+  "accountId": "3f6c1a52-9d4e-4b7a-8f21-6e0d2c9b7a14",
+  "transactionType": "card",
+  "amount": -1500,
+  "postedAt": "2026-11-09T02:10:00Z",
+  "category": "groceries",
+  "mcc": "54x1",
+  "paymentChannel": "in store",
+  "merchantName": "Corner Shop",
+  "merchantCountry": "ZA",
+  "score": 0,
+  "risk": "UNKNOWN",
+  "ruleOutcomes": [],
+  "failureReason": "INVALID"
+}

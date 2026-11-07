@@ -1,0 +1,13 @@
+{
+  "rail": "rtc",
+  "initiationChannel": "app",
+  "deviceId": "dev-c19e",
+  "counterpartyName": "T Mokoena",
+  "counterpartyBankCode": "470010",
+  "counterpartyAccountHash": "e40f7b",
+  "counterpartyProxy": "0821234567",
+  "counterpartyType": "EXTERNAL",
+  "payeeAddedAt": "2026-11-09T01:55:00Z",
+  "payeeMatch": "partialMatch",
+  "reference": "rent"
+}

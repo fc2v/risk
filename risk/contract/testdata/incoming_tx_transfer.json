@@ -1,0 +1,19 @@
+{
+  "id": "9b2e7c41-0d3f-4a8e-b6c5-1f7a2d9e3c08",
+  "accountId": "3f6c1a52-9d4e-4b7a-8f21-6e0d2c9b7a14",
+  "transactionType": "transfer",
+  "amount": -450000,
+  "postedAt": "2026-11-09T04:10:00+02:00",
+  "category": "transfer_out",
+  "rail": "rtc",
+  "initiationChannel": "app",
+  "deviceId": "dev-c19e",
+  "counterpartyName": "T Mokoena",
+  "counterpartyBankCode": "470010",
+  "counterpartyAccountHash": "e40f7b",
+  "counterpartyProxy": "0821234567",
+  "counterpartyType": "EXTERNAL",
+  "payeeAddedAt": "2026-11-09T03:55:00+02:00",
+  "payeeMatch": "partialMatch",
+  "reference": "rent"
+}

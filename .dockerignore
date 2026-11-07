@@ -1,0 +1,10 @@
+.git
+.github
+bin
+docs
+e2e
+loadtest
+compose.yaml
+config.json
+Dockerfile
+*.md

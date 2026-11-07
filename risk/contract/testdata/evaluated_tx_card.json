@@ -1,0 +1,33 @@
+{
+  "id": "0b7d2c1e-6a4f-4e8b-9c3d-2f1a5e7b9d04",
+  "accountId": "3f6c1a52-9d4e-4b7a-8f21-6e0d2c9b7a14",
+  "transactionType": "card",
+  "amount": -95000,
+  "postedAt": "2026-11-09T02:10:00Z",
+  "category": "electronics",
+  "mcc": "5732",
+  "paymentChannel": "online",
+  "merchantName": "Gadget Hub",
+  "merchantCity": "Johannesburg",
+  "merchantProvince": "Gauteng",
+  "merchantPostalCode": "2196",
+  "merchantCountry": "ZA",
+  "score": 30,
+  "risk": "MEDIUM",
+  "ruleOutcomes": [
+    {
+      "rule": "highAmountSpend",
+      "triggered": true,
+      "reason": "AMOUNT_ABOVE_THRESHOLD",
+      "score": 30,
+      "evidence": {
+        "baselineTxs": 36,
+        "medianSize": 25000,
+        "minBaselineTxs": 5,
+        "multiplier": 3,
+        "threshold": 75000,
+        "usedDefault": false
+      }
+    }
+  ]
+}
