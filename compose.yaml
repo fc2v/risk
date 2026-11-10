@@ -1,3 +1,7 @@
+# Local development stack: Kafka and Postgres for `make run`, the e2e tests and the load test.
+# It does not run Risk itself. Start it with `make stack/up`.
+# Not for production: Kafka is plaintext with no auth, and Postgres uses a default password.
+# Ports are 19092 (Kafka) and 55432 (Postgres) to avoid clashing with local installs.
 name: risk
 
 services:
