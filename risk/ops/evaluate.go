@@ -101,10 +101,10 @@ func alreadyProcessed(ctx context.Context, b Backends, t risk.Tx) (bool, error) 
 	return true, nil
 }
 
-// Postgres keeps microseconds, so PostedAt is compared at that precision. The rest is compared as
-// it would be published, since the detail pointers differ even when the values match.
+// Postgres rounds PostedAt to microseconds, so times under a microsecond apart are the same. The
+// rest is compared as it would be published, since the detail pointers differ even when the values match.
 func sameTx(a, b risk.Tx) bool {
-	if !a.PostedAt.Truncate(time.Microsecond).Equal(b.PostedAt.Truncate(time.Microsecond)) {
+	if d := a.PostedAt.Sub(b.PostedAt); d <= -time.Microsecond || d >= time.Microsecond {
 		return false
 	}
 	a.PostedAt, b.PostedAt = time.Time{}, time.Time{}
